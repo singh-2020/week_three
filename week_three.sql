@@ -30,4 +30,8 @@ ORDER BY LENGTH(CITY) DESC, CITY FETCH FIRST 1 ROWS ONLY;
 --9. Query the average population for all cities in CITY, rounded down to the nearest integer.
 SELECT FLOOR(AVG(POPULATION)) FROM CITY;
 
---10.
+--10. Query the average population for all cities in CITY, rounded down to the nearest integer.
+SELECT COUNTRY.CONTINENT, FLOOR(AVG(CITY.POPULATION)) AS AVERAGE_POPULATION
+FROM CITY
+JOIN COUNTRY ON CITY.COUNTRYCODE = COUNTRY.CODE
+GROUP BY COUNTRY.CONTINENT;
